@@ -31,6 +31,7 @@ Most of the month names were new words coined from French, Latin, or Greek. The 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
 ##Ten days of the week
+
 The month is divided into three décades or "weeks" of ten days each, named simply:
 
 - primidi (first day)
@@ -45,10 +46,11 @@ The month is divided into three décades or "weeks" of ten days each, named simp
 - décadi (tenth day)
 
 Décades were abandoned in Floréal an X (April 1802).
+
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
-##Complementary days
-Main article: Sansculottides
+##Complementary days/Sansculottides
+
 Five extra days – six in leap years – were national holidays at the end of every year. These were originally known as les sans-culottides (after sans-culottes), but after year III (1795) as les jours complémentaires:
 
 - 1st complementary day: ***La Fête de la Vertu***, "Celebration of Virtue", on 17 or 18 September
@@ -61,23 +63,26 @@ Five extra days – six in leap years – were national holidays at the end of e
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
 ##Converting from the Gregorian Calendar
+
 Below are the Gregorian dates each Republican year (an in French) began while the calendar was in effect.
 
-**An**          **Gregorian**
-***I (1)       22 September 1792***
-II (2)      22 September 1793
-III (3)     22 September 1794
-IV (4)      23 September 1795^[2]
-V (5)       22 September 1796
-VI (6)      22 September 1797
-VII (7)     22 September 1798
-VIII (8)    23 September 1799^[2]
-IX (9)      23 September 1800
-X (10)      23 September 1801
-XI (11)     23 September 1802
-XII (12)    24 September 1803^[2]
-XIII (13)   23 September 1804
-XIV (14)    23 September 1805
+|**An**    |      **Gregorian**       |
+|----------|--------------------------|
+|***I (1)  |     22 September 1792*** |
+|II (2)    |  22 September 1793       |
+|III (3)   |  22 September 1794       |
+|IV (4)    |  23 September 1795^[2]   |
+|V (5)     |  22 September 1796       |
+|VI (6)    |  22 September 1797       |
+|VII (7)   |  22 September 1798       |
+|VIII (8)  |  23 September 1799^[2]   |
+|IX (9)    |  23 September 1800       |
+|X (10)    |  23 September 1801       |
+|XI (11)   |  23 September 1802       |
+|XII (12)  |  24 September 1803^[2]   |
+|XIII (13) |  23 September 1804       |
+|XIV (14)  |  23 September 1805       |
+
 *[2] Extra (sextile) day inserted before date, due to previous leap year*
 
 The calendar was abolished in the year XIV (1805). After this date, opinions seem to differ on the method by which the leap years would have been determined if the calendar were still in force. There are at least four hypotheses used to convert dates from the Gregorian calendar:
@@ -114,4 +119,5 @@ CCXXVIII (228)          2019    23 September        22 September        23 Septe
 CCXXIX (229)            2020    22 September        22 September^[3]    22 September        23 September^[3]
 
 *[3]Extra (sextile) day inserted before date, due to previous leap year*
+
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
