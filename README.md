@@ -4,7 +4,8 @@ Python Converter of ISO Dates into, and from, French Republican Calendar
 The French Republican calendar (French: calendrier républicain français), also commonly called the French Revolutionary calendar (calendrier révolutionnaire français), was a calendar created and implemented during the French Revolution, and used by the French government for about 12 years from late 1793 to 1805, and for 18 days by the Paris Commune in 1871. The revolutionary system was designed in part to remove all religious and royalist influences from the calendar, and was part of a larger attempt at decimalisation in France (which also included decimal time of day, decimalisation of currency, and metrication). It was used in government records in France and other areas under French rule, including Belgium, Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and Italy.
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
-##Month Names:
+## Month Names:
+
 The Republican calendar year began the day the autumnal equinox occurred in Paris, and had twelve months of 30 days each, which were given new names based on nature, principally having to do with the prevailing weather in and around Paris. The extra five or six days in the year were not given a month designation, but considered Sansculottides or Complementary Days.
 
 + **Autumn**:
@@ -30,7 +31,7 @@ Most of the month names were new words coined from French, Latin, or Greek. The 
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
-##Ten days of the week
+## Ten days of the week
 
 The month is divided into three décades or "weeks" of ten days each, named simply:
 
@@ -49,7 +50,7 @@ Décades were abandoned in Floréal an X (April 1802).
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
-##Complementary days/Sansculottides
+## Complementary days/Sansculottides
 
 Five extra days – six in leap years – were national holidays at the end of every year. These were originally known as les sans-culottides (after sans-culottes), but after year III (1795) as les jours complémentaires:
 
@@ -62,7 +63,7 @@ Five extra days – six in leap years – were national holidays at the end of e
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
-##Converting from the Gregorian Calendar
+## Converting from the Gregorian Calendar
 
 Below are the Gregorian dates each Republican year (an in French) began while the calendar was in effect.
 
