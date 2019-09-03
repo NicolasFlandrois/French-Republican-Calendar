@@ -85,7 +85,7 @@ class Compute(object):
         leapyear = GetDate.leapyr(DateTuple[0])
 
         if DateTuple[7] < 265:
-            fr_year = DateTuple[0] - 1792 - 1
+            fr_year = DateTuple[0] - 1792
             fr_month = FrRepCal.monthNames[
                         (DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265))
                         // 30 +1]
@@ -96,7 +96,7 @@ class Compute(object):
                 fr_decadi = ((DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265)) % 30) // 10
                 fr_day = FrRepCal.dayNames[((DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265)) % 30) % 10]
         else:
-            fr_year = DateTuple[0] - 1792
+            fr_year = DateTuple[0] - 1792 +1
             fr_month = DateTuple[7] // 30
             fr_decadi = (DateTuple[7] % 30) // 10
             fr_day = (DateTuple[7] % 30) % 10
