@@ -114,3 +114,50 @@ The following table shows when several years of the Republican Era begin on the 
 *[3]Extra (sextile) day inserted before date, due to previous leap year*
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
+
+---------------------------------------------------------------------------
+
+# Development Ideas
+
+For the Computations we will consider the Following points:
+
+- The Year ALWAYS starts on September 22nd, of each Year.
+
+- We will apply leap years as they occure in the Gregorian Calendar. Easier to manage.
+
+- Day 1 of the Calendar == 22 September 1792  == Année I de la République Française, mois du Vendémiaire, Decade I, jour du primidi.
+
+- Lists of names:
+
+    + Month's Names =   ['Vendémiaire',
+                        'Brumaire',
+                        'Frimaire',
+                        'Nivôse',
+                        'Pluviôse',
+                        'Ventôse',
+                        'Germinal',
+                        'Floréal',
+                        'Prairial',
+                        'Messidor',
+                        'Thermidor',
+                        'Fructidor',
+                        'Sansculottides']
+
+    + Day's Names =     ['primidi',
+                        'duodi',
+                        'tridi',
+                        'quartidi',
+                        'quintidi',
+                        'sextidi',
+                        'septidi',
+                        'octidi',
+                        'nonidi',
+                        'décadi'
+                        ]
+
+    + Sansculottides =  ['La Fête de la Vertu',
+                         'La Fête du Génie',
+                         'La Fête du Travail',
+                         'La Fête de l\'Opinion',
+                         'La Fête des Récompenses',
+                         'La Fête de la Révolution']
