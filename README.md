@@ -68,7 +68,7 @@ Below are the Gregorian dates each Republican year (an in French) began while th
 
 |**An**    |      **Gregorian**       |
 |----------|--------------------------|
-|***I (1)  |     22 September 1792*** |
+|I (1)     |  22 September 1792       |
 |II (2)    |  22 September 1793       |
 |III (3)   |  22 September 1794       |
 |IV (4)    |  23 September 1795^[2]   |
@@ -97,26 +97,18 @@ The calendar was abolished in the year XIV (1805). After this date, opinions see
 
 The following table shows when several years of the Republican Era begin on the Gregorian calendar, according to each of the four above methods:
 
-**An Rep. Fr**      **AD/CE**   **Equinox**         **Romme**           **Continuous**      **128-Year**
-XV (15)                 1806    23 September        23 September        23 September        23 September
-
-XVI (16)                1807    24 September^[3]    23 September        24 September^[3]    24 September^[3]
-
-XVII (17)               1808    23 September        23 September^[3]    23 September        23 September
-
-XVIII (18)              1809    23 September        23 September        23 September        23 September
-
-XIX (19)                1810    23 September        23 September        23 September        23 September
-
-XX (20)                 1811    23 September        23 September        24 September^[3]    23 September
-
-CCXXVI (226)            2017    22 September        22 September        22 September        23 September
-
-CCXXVII (227)           2018    23 September^[3]    22 September        22 September        23 September
-
-CCXXVIII (228)          2019    23 September        22 September        23 September^[3]    23 September
-
-CCXXIX (229)            2020    22 September        22 September^[3]    22 September        23 September^[3]
+|**An Rep. Fr**     | **AD/CE**  | **Equinox**       |  **Romme**          | **Continuous**     | **128-Year**     |
+|-------------------|------------|-------------------|---------------------|--------------------|------------------|
+|XV (15)            |     1806   | 23 September      |  23 September       | 23 September       | 23 September     |
+|XVI (16)           |     1807   | 24 September^[3]  |  23 September       | 24 September^[3]   | 24 September^[3] |
+|XVII (17)          |     1808   | 23 September      |  23 September^[3]   | 23 September       | 23 September     |
+|XVIII (18)         |     1809   | 23 September      |  23 September       | 23 September       | 23 September     |
+|XIX (19)           |     1810   | 23 September      |  23 September       | 23 September       | 23 September     |
+|XX (20)            |     1811   | 23 September      |  23 September       | 24 September^[3]   | 23 September     |
+|CCXXVI (226)       |     2017   | 22 September      |  22 September       | 22 September       | 23 September     |
+|CCXXVII (227)      |     2018   | 23 September^[3]  |  22 September       | 22 September       | 23 September     |
+|CCXXVIII (228)     |     2019   | 23 September      |  22 September       | 23 September^[3]   | 23 September     |
+|CCXXIX (229)       |     2020   | 22 September      |  22 September^[3]   | 22 September       | 23 September^[3] |
 
 *[3]Extra (sextile) day inserted before date, due to previous leap year*
 
