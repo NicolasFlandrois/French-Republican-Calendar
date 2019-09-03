@@ -125,7 +125,7 @@ For the Computations we will consider the Following points:
 
 - We will apply leap years as they occure in the Gregorian Calendar. Easier to manage.
 
-- Day 1 of the Calendar == 22 September 1792  == Année I de la République Française, mois du Vendémiaire, Decade I, jour du primidi.
+- Day 1 of the Calendar == **22 September 1792**  == Année I de la République Française, mois du Vendémiaire, Decade I, jour du primidi.
 
 - Lists of names:
 
