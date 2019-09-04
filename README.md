@@ -6,7 +6,7 @@ Python Converter of ISO Dates into, and translate from, French Republican Calend
 
 **Date**: Wed 04 Sep 2019 14:12:52 CEST
 
-**License**:MIT License - Copyright (c) 2019 Nicolas Flandrois
+**License**: MIT License - Copyright (c) 2019 Nicolas Flandrois
 
 **Version**: v1
 
@@ -14,7 +14,7 @@ Python Converter of ISO Dates into, and translate from, French Republican Calend
 What is a French Republican Calendar?
 =====================================
 
-The French Republican calendar (French: calendrier républicain français), also commonly called the French Revolutionary calendar (calendrier révolutionnaire français), was a calendar created and implemented during the French Revolution, and used by the French government for about 12 years from late 1793 to 1805, and for 18 days by the Paris Commune in 1871. The revolutionary system was designed in part to remove all religious and royalist influences from the calendar, and was part of a larger attempt at decimalisation in France (which also included decimal time of day, decimalisation of currency, and metrication). It was used in government records in France and other areas under French rule, including Belgium, Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and Italy.
+The French Republican calendar (French: calendrier républicain français), also commonly called the French Revolutionary calendar (calendrier révolutionnaire français), was a calendar created and implemented during the French Revolution, and **used by the French government for about 12 years from late *1793* to *1805***, and for **18 days by the Paris Commune in *1871***. The revolutionary system was designed in part to remove all religious and royalist influences from the calendar, and was part of a larger attempt at decimalisation in France (which also included decimal time of day, decimalisation of currency, and metrication). It was used in government records in France and other areas under French rule, including Belgium, Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and Italy.
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
