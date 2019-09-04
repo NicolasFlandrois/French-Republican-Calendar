@@ -112,7 +112,7 @@ The calendar was abolished in the year XIV (1805). After this date, opinions see
 
 The following table shows when several years of the Republican Era begin on the Gregorian calendar, according to each of the four above methods:
 
-|**An Rep. Fr**     | **AD/CE**  | **Equinox**       |  **Romme**          | **Continuous**     | **128-Year**     |
+|**An Rep. Fr.**    | **AD/CE**  | **Equinox**       |  **Romme**          | **Continuous**     | **128-Year**     |
 |-------------------|------------|-------------------|---------------------|--------------------|------------------|
 |XV (15)            |     1806   | 23 September      |  23 September       | 23 September       | 23 September     |
 |XVI (16)           |     1807   | 24 September^[3]  |  23 September       | 24 September^[3]   | 24 September^[3] |
@@ -135,14 +135,12 @@ Ideas Taken in Considerations during Development
 
 For the Computations we will consider the Following points:
 
-- The Year ALWAYS starts on September 22nd, of each Year.
-
-- We will apply leap years as they occure in the Gregorian Calendar. Easier to manage.
-
-- Day 1 of the Calendar == **22 September 1792**  == Année I de la République Française, mois du Vendémiaire, Decade I, jour du primidi.
-
+- The **Year ALWAYS starts** on ***September 22nd***, of each Year. (Easier to manage.)
+- We will apply leap years as they occure in the Gregorian Calendar. (Easier to manage.)
+- Day 1 of the Calendar of Year 1 :
+    + **22 September 1792**
+    + Année I de la République Française, mois du Vendémiaire, Decade I, jour du primidi.
 - Lists of names:
-
     + Month's Names =   ['Vendémiaire',
                         'Brumaire',
                         'Frimaire',
@@ -156,7 +154,6 @@ For the Computations we will consider the Following points:
                         'Thermidor',
                         'Fructidor',
                         'Sansculottides']
-
     + Day's Names =     ['primidi',
                         'duodi',
                         'tridi',
@@ -168,31 +165,21 @@ For the Computations we will consider the Following points:
                         'nonidi',
                         'décadi'
                         ]
-
     + Sansculottides =  ['La Fête de la Vertu',
                          'La Fête du Génie',
                          'La Fête du Travail',
                          'La Fête de l\'Opinion',
                          'La Fête des Récompenses',
                          'La Fête de la Révolution']
-
 - Convertion Table:
-
     + 1 week = 10 days
-
     + 1 month = 3 weeks = 30 days
     + 1 season = 3 month = 9 weeks = 90 days
-
     + 1 year = 4 seasons = 12 months = 36 weeks = 360 days
-
     + 1 year + Sanscullotides:
-
         - Leap Year == True:
-
             + 1 year + Sanscullotides = 366 days (360 + 6)
-
         - Leap Year == False:
-
             + 1 year + Sanscullotides = 365 days (360 + 5)
 
 --------------------
@@ -220,13 +207,8 @@ Nos other dependencies are needed, as it's been developed with standard Python 3
 At launch the current Gregorian and Frenc Republican Dates will be given Automatically.
 
 From Menu options, you can either:
-
 - Convert a Gregorian Date into a French Republican date. (Following the instructions to input the Gregorian Date.)
-
 - Translate a French Republican Date into a Gregorian date. (Following the instructions to input the French Rep. Date.)
-
 - Compute Today's Gregorian Date. In the enventuality you used other options, then came back to main menu, and needed once again today's French Rep. Date.
-
 - Go to Main menu (Basically will display the same present menu, without the Auto Todays' French Rep. Date on top.)
-
 - Quit the program
