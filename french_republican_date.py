@@ -129,7 +129,10 @@ class Compute(object):
                 'FrRep_YearWeek':fr_yrweek + 1,  # Integer
                 'FrRep_YearMonth': (fr_yrweek // 3) + 1,  # Integer
                 'FrRep_YearDay':fr_yrday + 1  # Integer
-                }
+                }  # I could implement the dictionary directly as I create
+                # them along the way. However This way Here, we can have a
+                # clearer view of what comes from where, and the type of data
+                # (cf inline comments).
 
     def translate(FrRepDateDict):
         """
