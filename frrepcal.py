@@ -3,60 +3,59 @@
 # Date:
 # Author: Nicolas Flandrois
 
-from datetime import datetime
+import datetime
+
 
 class FrRepCal(object):
     """FrRepCal will Handle French Republican Dates"""
-    monthNames =    [
-                        'Vendémiaire',
-                        'Brumaire',
-                        'Frimaire',
-                        'Nivôse',
-                        'Pluviôse',
-                        'Ventôse',
-                        'Germinal',
-                        'Floréal',
-                        'Prairial',
-                        'Messidor',
-                        'Thermidor',
-                        'Fructidor',
-                        'Sansculottides'
-                        ]
+    monthNames = [
+                  'Vendémiaire',
+                  'Brumaire',
+                  'Frimaire',
+                  'Nivôse',
+                  'Pluviôse',
+                  'Ventôse',
+                  'Germinal',
+                  'Floréal',
+                  'Prairial',
+                  'Messidor',
+                  'Thermidor',
+                  'Fructidor',
+                  'Sansculottides'
+                  ]
 
     dayNames = [
-                    'Primidi',
-                    'Duodi',
-                    'Tridi',
-                    'Quartidi',
-                    'Quintidi',
-                    'Sextidi',
-                    'Septidi',
-                    'Octidi',
-                    'Nonidi',
-                    'Décadi'
-                    ]
+                'Primidi',
+                'Duodi',
+                'Tridi',
+                'Quartidi',
+                'Quintidi',
+                'Sextidi',
+                'Septidi',
+                'Octidi',
+                'Nonidi',
+                'Décadi'
+                ]
 
-    sansculottides =    [
-                            'La Fête de la Vertu',
-                            'La Fête du Génie',
-                            'La Fête du Travail',
-                            'La Fête de l\'Opinion',
-                            'La Fête des Récompenses',
-                            'La Fête de la Révolution'
-                            ]
+    sansculottides = [
+                      'La Fête de la Vertu',
+                      'La Fête du Génie',
+                      'La Fête du Travail',
+                      'La Fête de l\'Opinion',
+                      'La Fête des Récompenses',
+                      'La Fête de la Révolution'
+                      ]
 
-    # def model():
-    # """Dictionary model/view of a French Rep Date."""
 
-class GetDate(object):
-    """GetDate will manage Gregorian Dates"""
+class GregorianDate(object):
+    """GregorianDate will manage Gregorian Dates"""
 
     def nowdate():
         """
         Returns Date Now at time of coputation, local time,
         Gregorian callendar, as a date tuple.
         """
-        return datetime.now().timetuple()
+        return datetime.datetime.now().timetuple()
 
     def leapyr(year: int):
         """"
@@ -64,6 +63,11 @@ class GetDate(object):
         a Leap year (366 days)
         or a Normal year (365 days).
         Then it will to the variable n the value of 366 or 365, accordingly.
+        Returns a Tuple:
+            - number of days tha year,
+            - and a Boolean :
+                            True == Leap Year
+                            False == Normal Year
         """
         if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
             n = 366
@@ -75,14 +79,17 @@ class GetDate(object):
 
         return (n, leapyear)
 
+
 class Compute(object):
-    """docstring for Compute"""
+    """Compute will manage all calculation to Convert and translate."""
+
     def convert(DateTuple):
         """
-        The convert function, computes Gregorian Dates into French Rep. Dates.
+        The convert function, computes Gregorian Dates into
+        French Republican Dates.
         Takes a Date Tuple, and Returning Dictionnary.
         """
-        totalYrdays = GetDate.leapyr(DateTuple[0])
+        totalYrdays = GregorianDate.leapyr(DateTuple[0])
         endYrConstant = 100
         leapyear = totalYrdays[1]
 
@@ -131,6 +138,7 @@ class Compute(object):
     #     It returns a Date time Tuple.
     #     """
 
+
 class View(object):
     """ View returns readable dates in each section, as readable String"""
 
@@ -146,3 +154,15 @@ Jour du {dictdate['FrRep_Weekday']}"
         Unofficial Format"""
         return f"An {dictdate['FrRep_Year']} de la République, \
 {dictdate['FrRep_MonthDay']} {dictdate['FrRep_Month']}"
+
+    def gregorian_date(date):
+        """Given a Date Tupple, will return the Gregorian date
+        as a readable String."""
+        dstring = f"{date[0]} {date[1]} {date[2]}"
+        d = datetime.datetime.strptime(dstring, '%Y %m %d')
+        return d.strftime('%A, %Y %B %d')
+
+# Test
+# print(GregorianDate.nowdate())
+# print(View.gregorian_date(GregorianDate.nowdate()))
+# print(View.frrepdate_unofficial(Compute.convert(GregorianDate.nowdate())))
