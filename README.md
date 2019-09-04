@@ -161,3 +161,22 @@ For the Computations we will consider the Following points:
                          'La Fête de l\'Opinion',
                          'La Fête des Récompenses',
                          'La Fête de la Révolution']
+
+- Convertion Table:
+
+    + 1 week = 10 days
+
+    + 1 month = 3 weeks = 30 days
+    + 1 season = 3 month = 9 weeks = 90 days
+
+    + 1 year = 4 seasons = 12 months = 36 weeks = 360 days
+
+    + 1 year + Sanscullotides:
+
+        - Leap Year == True:
+
+            + 1 year + Sanscullotides = 366 days (360 + 6)
+
+        - Leap Year == False:
+
+            + 1 year + Sanscullotides = 365 days (360 + 5)
