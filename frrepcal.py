@@ -162,6 +162,22 @@ Jour du {dictdate['FrRep_Weekday']}"
         d = datetime.datetime.strptime(dstring, '%Y %m %d')
         return d.strftime('%A, %Y %B %d')
 
+
+# class Input(object):
+#     """Asking for Input in a specific Format,
+#     and convert it in a Specific Format accordingly,
+#     either French Republican Date Dictionary, or Gregorian Date Tuple."""
+#     def __init__(self, arg):
+#         super(Input, self).__init__()
+#         self.arg = arg
+
+
+# class Menu/APP(object):
+#             """Menu (or name it APP?)Will Manage the App"""
+#             def __init__(self, arg):
+#                 super(Menu, self).__init__()
+#                 self.arg = arg
+
 # Test
 # print(GregorianDate.nowdate())
 # print(View.gregorian_date(GregorianDate.nowdate()))
