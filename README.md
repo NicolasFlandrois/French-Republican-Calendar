@@ -130,7 +130,7 @@ The following table shows when several years of the Republican Era begin on the 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
 ---------------------------------------------------------------------------
-Ideas Taken in Considerations during Development
+Ideas Considered During Development
 ================================================
 
 For the Computations we will consider the Following points:
