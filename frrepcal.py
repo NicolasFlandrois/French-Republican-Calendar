@@ -7,7 +7,8 @@ import datetime
 
 
 class FrRepCal(object):
-    """FrRepCal will Handle French Republican Dates"""
+    """FrRepCal (French Republican Calendar) will handle
+    French Republican Dates data and constants"""
     monthNames = [
                   'Vendémiaire',
                   'Brumaire',
@@ -91,8 +92,6 @@ class Compute(object):
         """
         totalYrdays = GregorianDate.leapyr(DateTuple[0])
         endYrConstant = 100
-        leapyear = totalYrdays[1]
-
 
         if DateTuple[7] < (totalYrdays[0] - 100):
             fr_year = DateTuple[0] - 1792
@@ -109,7 +108,7 @@ class Compute(object):
                 fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
                 fr_decade = (fr_yrweek % 3)+1
                 fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)]
-                fr_monthday = (((fr_yrday // 10) % 3)+1 * 10) + (fr_yrday % 10)
+                fr_monthday = (fr_yrday % 30) + 1
 
         else:
             fr_year = DateTuple[0] - 1792 + 1
@@ -118,14 +117,14 @@ class Compute(object):
             fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
             fr_decade = fr_yrweek % 3
             fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)-1]
-            fr_monthday = (((fr_yrday // 10) % 3)+1 * 10) + (fr_yrday % 10)
+            fr_monthday = (fr_yrday % 30) + 1
 
         return {
                 'FrRep_Year':fr_year,  # Integer
                 'FrRep_Month':fr_month,  # String
                 'FrRep_Decade':fr_decade,  # Integer
                 'FrRep_Weekday':fr_weekday,  # String
-                'leapYear':leapyear,  # Boolean
+                'leapYear':totalYrdays[1],  # Boolean
                 'FrRep_MonthDay': fr_monthday,  # Integer
                 'FrRep_YearWeek':fr_yrweek + 1,  # Integer
                 'FrRep_YearMonth': (fr_yrweek // 3) + 1,  # Integer
@@ -142,18 +141,28 @@ class Compute(object):
 class View(object):
     """ View returns readable dates in each section, as readable String"""
 
-    def frrepdate_official(dictdate: dict):
-        """Returns a readable string, as French Republican Date.
-        Commun Official Format."""
-        return f"Année {dictdate['FrRep_Year']} de la République Française, \
-Mois de {dictdate['FrRep_Month']}, Décade {dictdate['FrRep_Decade']}, \
-Jour du {dictdate['FrRep_Weekday']}"
+    def fr_date_b1802(date: dict):
+        """
+        french_republican_date_early_format_before1802(date: dict)
+        Returns a readable string, as French Republican Date.
+        Commun Official Format.
+        Dates as use before Décades were abandoned in
+        'Floréal de l'an X' (April 1802).
+        """
+        return f"Année {date['FrRep_Year']} de la République Française, \
+Mois de {date['FrRep_Month']}, Décade {date['FrRep_Decade']}, \
+Jour du {date['FrRep_Weekday']}"
 
-    def frrepdate_unofficial(dictdate):
-        """Returns a readable string, as French Republican Date.
-        Unofficial Format"""
-        return f"An {dictdate['FrRep_Year']} de la République, \
-{dictdate['FrRep_MonthDay']} {dictdate['FrRep_Month']}"
+    def fr_date_a1802(date: dict):
+        """
+        french_repuplican_date_late_format_after1802(date: dict)
+        Returns a readable string, as French Republican Date.
+        Unofficial Format.
+        Dates as use after Décades were abandoned in
+        'Floréal de l'an X' (April 1802).
+        """
+        return f"{date['FrRep_MonthDay']} {date['FrRep_Month']}, \
+de l'An {date['FrRep_Year']} de la République"
 
     def gregorian_date(date):
         """Given a Date Tupple, will return the Gregorian date
@@ -179,6 +188,38 @@ Jour du {dictdate['FrRep_Weekday']}"
 #                 self.arg = arg
 
 # Test
+print("TEST\n\nToday:")
 # print(GregorianDate.nowdate())
-# print(View.gregorian_date(GregorianDate.nowdate()))
-# print(View.frrepdate_unofficial(Compute.convert(GregorianDate.nowdate())))
+print(View.gregorian_date(GregorianDate.nowdate()))
+print(View.fr_date_b1802(Compute.convert(GregorianDate.nowdate())))
+print(View.fr_date_a1802(Compute.convert(GregorianDate.nowdate())))
+print("\n\n01/01/2019 > 12 Nivôse 227 > An 227, Nivôse, Decade II, Jour du Duodi")
+# print(datetime.date(2019, 1, 1).timetuple())
+print(View.gregorian_date(datetime.date(2019, 1, 1).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 1, 1).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 1, 1).timetuple())))
+print("\n\n01/04/2019 > 12 Germinal 227 > An 227, Germinal, Decade II, Jour du Duodi")
+# print(datetime.date(2019, 4, 1).timetuple())
+print(View.gregorian_date(datetime.date(2019, 4, 1).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 4, 1).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 4, 1).timetuple())))
+print("\n\n16/09/2019 > 30 Fructidor 227 > An 227, Fructidor, Decade III, Jour du Décadi")
+# print(datetime.date(2019, 9, 16).timetuple())
+print(View.gregorian_date(datetime.date(2019, 9, 16).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 9, 16).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 9, 16).timetuple())))
+print("\n\n20/09/2019 > Année 227, Sansculottides, Jour de l'Opinion")
+# print(datetime.date(2019, 9, 20).timetuple())
+print(View.gregorian_date(datetime.date(2019, 9, 20).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 9, 20).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 9, 20).timetuple())))
+print("\n\n22/09/2019 > 1 Vendémiaire 228 > An 228, Vendémiaire, Decade I, Jour du Primidi")
+# print(datetime.date(2019, 9, 22).timetuple())
+print(View.gregorian_date(datetime.date(2019, 9, 22).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 9, 22).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 9, 22).timetuple())))
+print("\n\n31/12/2019 > 11 Nivôse 228 > An 228, Nivôse, Decade II, Jour du Primidi")
+# print(datetime.date(2019, 12, 31).timetuple())
+print(View.gregorian_date(datetime.date(2019, 12, 31).timetuple()))
+print(View.fr_date_b1802(Compute.convert(datetime.date(2019, 12, 31).timetuple())))
+print(View.fr_date_a1802(Compute.convert(datetime.date(2019, 12, 31).timetuple())))
