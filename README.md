@@ -1,22 +1,26 @@
 # French-Republican-Calendar
-Python Converter of ISO Dates into, and from, French Republican Calendar
+Python Converter of ISO Dates into, and translate from, French Republican Calendar
 
 ------------------------------
-Author: Nicolas Flandrois
-Date:
-License:MIT License - Copyright (c) 2019 Nicolas Flandrois
-Version: v1
+**Author**: Nicolas Flandrois
+
+**Date**: Wed 04 Sep 2019 14:12:52 CEST
+
+**License**:MIT License - Copyright (c) 2019 Nicolas Flandrois
+
+**Version**: v1
 
 ------------------------------
 What is a French Republican Calendar?
 =====================================
 
 The French Republican calendar (French: calendrier républicain français), also commonly called the French Revolutionary calendar (calendrier révolutionnaire français), was a calendar created and implemented during the French Revolution, and used by the French government for about 12 years from late 1793 to 1805, and for 18 days by the Paris Commune in 1871. The revolutionary system was designed in part to remove all religious and royalist influences from the calendar, and was part of a larger attempt at decimalisation in France (which also included decimal time of day, decimalisation of currency, and metrication). It was used in government records in France and other areas under French rule, including Belgium, Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and Italy.
+
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
 ## Month Names:
 
-The Republican calendar year began the day the autumnal equinox occurred in Paris, and had twelve months of 30 days each, which were given new names based on nature, principally having to do with the prevailing weather in and around Paris. The extra five or six days in the year were not given a month designation, but considered Sansculottides or Complementary Days.
+The Republican calendar **year began** the **day the autumnal equinox occurred in Paris**, and had **twelve months of 30 days each**, which were given new names based on nature, principally having to do with the prevailing weather in and around Paris. The **extra five or six days in the year** were not given a month designation, but considered **Sansculottides** or Complementary Days.
 
 + ***Autumn***:
     - **Vendémiaire** (from French vendange, derived from Latin vindemia, "grape harvest"), starting 22, 23, or 24 September
@@ -37,7 +41,7 @@ The Republican calendar year began the day the autumnal equinox occurred in Pari
 
 [1] Note: On many printed calendars of Year II (1793–94), the month of Thermidor was named Fervidor (from Latin fervidus, "burning hot").
 
-Most of the month names were new words coined from French, Latin, or Greek. The endings of the names are grouped by season. "Dor" means "giving" in Greek.[9]
+Most of the month names were new words coined from French, Latin, or Greek. The endings of the names are grouped by season. "Dor" means "giving" in Greek.
 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
@@ -98,13 +102,13 @@ Below are the Gregorian dates each Republican year (an in French) began while th
 
 The calendar was abolished in the year XIV (1805). After this date, opinions seem to differ on the method by which the leap years would have been determined if the calendar were still in force. There are at least four hypotheses used to convert dates from the Gregorian calendar:
 
-+ **Equinox**: The leap years would continue to vary in order to ensure that each year the autumnal equinox in Paris falls on 1 Vendémiaire, as was the case from year I to year XIV. This is the only method that was ever in legal effect, although it means that sometimes five years pass between leap years, such as the years 15 and 20.[16]
++ **Equinox**: The leap years would continue to vary in order to ensure that each year the autumnal equinox in Paris falls on 1 Vendémiaire, as was the case from year I to year XIV. This is the only method that was ever in legal effect, although it means that sometimes five years pass between leap years, such as the years 15 and 20.
 
-+ **Romme**: Leap years would have fallen on each year divisible by four (thus in 20, 24, 28...), except most century years, according to Romme's proposed fixed rules. This would have simplified conversions between the Republican and Gregorian calendars since the Republican leap day would usually follow a few months after 29 February, at the end of each year divisible by four, so that the date of the Republican New Year remains the same (22 September) in the Gregorian calendar for the entire third century of the Republican Era (AD 1992–2091).[17]
++ **Romme**: Leap years would have fallen on each year divisible by four (thus in 20, 24, 28...), except most century years, according to Romme's proposed fixed rules. This would have simplified conversions between the Republican and Gregorian calendars since the Republican leap day would usually follow a few months after 29 February, at the end of each year divisible by four, so that the date of the Republican New Year remains the same (22 September) in the Gregorian calendar for the entire third century of the Republican Era (AD 1992–2091).
 
-+ **Continuous**: The leap years would have continued in a fixed rule every four years from the last one (thus years 15, 19, 23, 27...) with the leap day added before, rather than after, each year divisible by four, except most century years. This rule has the advantage that it is both simple to calculate and is continuous with every year in which the calendar was in official use during the First Republic. Some concordances were printed in France, after the Republican Calendar was abandoned, using this rule to determine dates for long-term contracts.[18][19]
++ **Continuous**: The leap years would have continued in a fixed rule every four years from the last one (thus years 15, 19, 23, 27...) with the leap day added before, rather than after, each year divisible by four, except most century years. This rule has the advantage that it is both simple to calculate and is continuous with every year in which the calendar was in official use during the First Republic. Some concordances were printed in France, after the Republican Calendar was abandoned, using this rule to determine dates for long-term contracts.
 
-+ **128-Year**: Beginning with year 20, years divisible by four would be leap years, except for years divisible by 128. Note that this rule was first proposed by von Mädler, and not until the late 19th century. The date of the Republican New Year remains the same (23 September) in the Gregorian calendar every year from 129 to 256 (AD 1920–2047).[20][21][22]
++ **128-Year**: Beginning with year 20, years divisible by four would be leap years, except for years divisible by 128. Note that this rule was first proposed by von Mädler, and not until the late 19th century. The date of the Republican New Year remains the same (23 September) in the Gregorian calendar every year from 129 to 256 (AD 1920–2047).
 
 The following table shows when several years of the Republican Era begin on the Gregorian calendar, according to each of the four above methods:
 

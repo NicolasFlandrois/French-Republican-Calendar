@@ -1,6 +1,6 @@
 #!/usr/bin/python3.7
 # UTF8
-# Date:
+# Date: Wed 04 Sep 2019 14:12:52 CEST
 # Author: Nicolas Flandrois
 
 import datetime
