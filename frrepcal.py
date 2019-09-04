@@ -24,16 +24,16 @@ class FrRepCal(object):
                         ]
 
     dayNames = [
-                    'primidi',
-                    'duodi',
-                    'tridi',
-                    'quartidi',
-                    'quintidi',
-                    'sextidi',
-                    'septidi',
-                    'octidi',
-                    'nonidi',
-                    'décadi'
+                    'Primidi',
+                    'Duodi',
+                    'Tridi',
+                    'Quartidi',
+                    'Quintidi',
+                    'Sextidi',
+                    'Septidi',
+                    'Octidi',
+                    'Nonidi',
+                    'Décadi'
                     ]
 
     sansculottides =    [
@@ -67,13 +67,13 @@ class GetDate(object):
         """
         if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
             n = 366
-            # print("The year is a Leap year.\n")
+            leapyear = True
 
         else:
             n = 365
-            # print("The year is a normal year.\n")
+            leapyear = False
 
-        return n
+        return (n, leapyear)
 
 class Compute(object):
     """docstring for Compute"""
@@ -82,26 +82,48 @@ class Compute(object):
         The convert function, computes Gregorian Dates into French Rep. Dates.
         Takes a Date Tuple, and Returning Dictionnary.
         """
-        leapyear = GetDate.leapyr(DateTuple[0])
+        totalYrdays = GetDate.leapyr(DateTuple[0])
+        endYrConstant = 100
+        leapyear = totalYrdays[1]
 
-        if DateTuple[7] < 265:
+
+        if DateTuple[7] < (totalYrdays[0] - 100):
             fr_year = DateTuple[0] - 1792
-            fr_month = FrRepCal.monthNames[
-                        (DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265))
-                        // 30 +1]
-            if fr_month == 'Sansculottides':
-                fr_decadi = None
-                # fr_day = FrRepCal.sansculottides[((DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265)) % 30) % 10] # Not Sure of this line!
-            else:
-                fr_decadi = ((DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265)) % 30) // 10
-                fr_day = FrRepCal.dayNames[((DateTuple[7] + (GetDate.leapyr(DateTuple[0]) - 265)) % 30) % 10]
-        else:
-            fr_year = DateTuple[0] - 1792 +1
-            fr_month = DateTuple[7] // 30
-            fr_decadi = (DateTuple[7] % 30) // 10
-            fr_day = (DateTuple[7] % 30) % 10
+            fr_yrday = DateTuple[7] + endYrConstant
+            fr_yrweek = fr_yrday // 10
 
-        return fr_year, fr_month, fr_decadi, fr_day
+            if fr_yrday > 360: # Define the Sansculottides exception.
+                fr_month = FrRepCal.monthNames[-1]
+                fr_decade = None
+                fr_weekday = FrRepCal.sansculottides[fr_yrday - 360]
+                fr_monthday = fr_yrday - 359
+
+            else:
+                fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
+                fr_decade = (fr_yrweek % 3)+1
+                fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)]
+                fr_monthday = (((fr_yrday // 10) % 3)+1 * 10) + (fr_yrday % 10)
+
+        else:
+            fr_year = DateTuple[0] - 1792 + 1
+            fr_yrday = DateTuple[7] - (totalYrdays[0] - endYrConstant)
+            fr_yrweek = fr_yrday // 10
+            fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
+            fr_decade = fr_yrweek % 3
+            fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)-1]
+            fr_monthday = (((fr_yrday // 10) % 3)+1 * 10) + (fr_yrday % 10)
+
+        return {
+                'FrRep_Year':fr_year,  # Integer
+                'FrRep_Month':fr_month,  # String
+                'FrRep_Decade':fr_decade,  # Integer
+                'FrRep_Weekday':fr_weekday,  # String
+                'leapYear':leapyear,  # Boolean
+                'FrRep_MonthDay': fr_monthday,  # Integer
+                'FrRep_YearWeek':fr_yrweek + 1,  # Integer
+                'FrRep_YearMonth': (fr_yrweek // 3) + 1,  # Integer
+                'FrRep_YearDay':fr_yrday + 1  # Integer
+                }
 
     # def translate(FrRepDateDict):
     #     """
@@ -109,11 +131,18 @@ class Compute(object):
     #     It returns a Date time Tuple.
     #     """
 
-print('Test:')
-# print(Compute.convert(GetDate.nowdate()))
-print("\n20/09/2018 is supposed to be : Année 226, Sansculottides[13], Decade I, Jours de l'Opinion[04]")
-# print("\nDate Sansculottides", Compute.convert(datetime.strptime(f'2018 09 20', '%Y %m %d').timetuple()))
-print("\n01/12/2018 is suppose to be: Année 227 Mois de Frimaire[03], Decade I, Jour du Décadi[10]")
-print("Date After 22Sept", Compute.convert(datetime.strptime(f'2018 12 01', '%Y %m %d').timetuple()))
-print("\n01/04/2018 is suppose to be: Année 226 Mois de Germinal[07], Decade II, Jour du Duodi[02]")
-print("Date Before 22Sept", Compute.convert(datetime.strptime(f'2018 04 01', '%Y %m %d').timetuple()))
+class View(object):
+    """ View returns readable dates in each section, as readable String"""
+
+    def frrepdate_official(dictdate: dict):
+        """Returns a readable string, as French Republican Date.
+        Commun Official Format."""
+        return f"Année {dictdate['FrRep_Year']} de la République Française, \
+Mois de {dictdate['FrRep_Month']}, Décade {dictdate['FrRep_Decade']}, \
+Jour du {dictdate['FrRep_Weekday']}"
+
+    def frrepdate_unofficial(dictdate):
+        """Returns a readable string, as French Republican Date.
+        Unofficial Format"""
+        return f"An {dictdate['FrRep_Year']} de la République, \
+{dictdate['FrRep_MonthDay']} {dictdate['FrRep_Month']}"
