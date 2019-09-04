@@ -1,6 +1,16 @@
 # French-Republican-Calendar
 Python Converter of ISO Dates into, and from, French Republican Calendar
 
+------------------------------
+Author: Nicolas Flandrois
+Date:
+License:MIT License - Copyright (c) 2019 Nicolas Flandrois
+Version: v1
+
+------------------------------
+What is a French Republican Calendar?
+=====================================
+
 The French Republican calendar (French: calendrier républicain français), also commonly called the French Revolutionary calendar (calendrier révolutionnaire français), was a calendar created and implemented during the French Revolution, and used by the French government for about 12 years from late 1793 to 1805, and for 18 days by the Paris Commune in 1871. The revolutionary system was designed in part to remove all religious and royalist influences from the calendar, and was part of a larger attempt at decimalisation in France (which also included decimal time of day, decimalisation of currency, and metrication). It was used in government records in France and other areas under French rule, including Belgium, Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and Italy.
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
@@ -8,22 +18,22 @@ The French Republican calendar (French: calendrier républicain français), also
 
 The Republican calendar year began the day the autumnal equinox occurred in Paris, and had twelve months of 30 days each, which were given new names based on nature, principally having to do with the prevailing weather in and around Paris. The extra five or six days in the year were not given a month designation, but considered Sansculottides or Complementary Days.
 
-+ **Autumn**:
-    - Vendémiaire (from French vendange, derived from Latin vindemia, "grape harvest"), starting 22, 23, or 24 September
-    - Brumaire (from French brume, "mist"), starting 22, 23, or 24 October
-    - Frimaire (From French frimas, "frost"), starting 21, 22, or 23 November
-+ **Winter**:
-    - Nivôse (from Latin nivosus, "snowy"), starting 21, 22, or 23 December
-    - Pluviôse (from French pluvieux, derived from Latin pluvius, "rainy"), starting 20, 21, or 22 January
-    - Ventôse (from French venteux, derived from Latin ventosus, "windy"), starting 19, 20, or 21 February
-+ **Spring**:
-    - Germinal (from French germination), starting 20 or 21 March
-    - Floréal (from French fleur, derived from Latin flos, "flower"), starting 20 or 21 April
-    - Prairial (from French prairie, "meadow"), starting 20 or 21 May
-+ **Summer**:
-    - Messidor (from Latin messis, "harvest"), starting 19 or 20 June
-    - Thermidor (or Fervidor^[1]) (from Greek thermon, "summer heat"), starting 19 or 20 July
-    - Fructidor (from Latin fructus, "fruit"), starting 18 or 19 August
++ ***Autumn***:
+    - **Vendémiaire** (from French vendange, derived from Latin vindemia, "grape harvest"), starting 22, 23, or 24 September
+    - **Brumaire** (from French brume, "mist"), starting 22, 23, or 24 October
+    - **Frimaire** (From French frimas, "frost"), starting 21, 22, or 23 November
++ ***Winter***:
+    - **Nivôse** (from Latin nivosus, "snowy"), starting 21, 22, or 23 December
+    - **Pluviôse** (from French pluvieux, derived from Latin pluvius, "rainy"), starting 20, 21, or 22 January
+    - **Ventôse** (from French venteux, derived from Latin ventosus, "windy"), starting 19, 20, or 21 February
++ ***Spring***:
+    - **Germinal** (from French germination), starting 20 or 21 March
+    - **Floréal** (from French fleur, derived from Latin flos, "flower"), starting 20 or 21 April
+    - **Prairial** (from French prairie, "meadow"), starting 20 or 21 May
++ ***Summer***:
+    - **Messidor** (from Latin messis, "harvest"), starting 19 or 20 June
+    - **Thermidor** (or Fervidor^[1]) (from Greek thermon, "summer heat"), starting 19 or 20 July
+    - **Fructidor** (from Latin fructus, "fruit"), starting 18 or 19 August
 
 [1] Note: On many printed calendars of Year II (1793–94), the month of Thermidor was named Fervidor (from Latin fervidus, "burning hot").
 
@@ -35,16 +45,16 @@ Most of the month names were new words coined from French, Latin, or Greek. The 
 
 The month is divided into three décades or "weeks" of ten days each, named simply:
 
-- primidi (first day)
-- duodi (second day)
-- tridi (third day)
-- quartidi (fourth day)
-- quintidi (fifth day)
-- sextidi (sixth day)
-- septidi (seventh day)
-- octidi (eighth day)
-- nonidi (ninth day)
-- décadi (tenth day)
+- **primidi** (first day)
+- **duodi** (second day)
+- **tridi** (third day)
+- **quartidi** (fourth day)
+- **quintidi** (fifth day)
+- **sextidi** (sixth day)
+- **septidi** (seventh day)
+- **octidi** (eighth day)
+- **nonidi** (ninth day)
+- **décadi** (tenth day)
 
 Décades were abandoned in Floréal an X (April 1802).
 
@@ -116,8 +126,8 @@ The following table shows when several years of the Republican Era begin on the 
 [Source Wikipedia: French Republican Calendar](https://en.wikipedia.org/wiki/French_Republican_calendar)
 
 ---------------------------------------------------------------------------
-
-# Development Ideas
+Ideas Taken in Considerations during Development
+================================================
 
 For the Computations we will consider the Following points:
 
@@ -180,3 +190,39 @@ For the Computations we will consider the Following points:
         - Leap Year == False:
 
             + 1 year + Sanscullotides = 365 days (360 + 5)
+
+--------------------
+How To Use This Program?
+========================
+
+## Requierements & Dependencies
+
+This program is initially created to run in Python, from the terminal.
+
+It has been developed in **Python 3.7**.
+
+*(If you use earlier Python versions, String formating needs to be adapted accordingly.)*
+
+Nos other dependencies are needed, as it's been developed with standard Python 3.7 modules, and libraries.
+
+## How to run the Program?
+
+1. With Python 3.7 launch the program in your interpreter or terminal.
+
+        python3.7 frrepcal.py
+
+2. Follow the instructions from the Menu.
+
+At launch the current Gregorian and Frenc Republican Dates will be given Automatically.
+
+From Menu options, you can either:
+
+- Convert a Gregorian Date into a French Republican date. (Following the instructions to input the Gregorian Date.)
+
+- Translate a French Republican Date into a Gregorian date. (Following the instructions to input the French Rep. Date.)
+
+- Compute Today's Gregorian Date. In the enventuality you used other options, then came back to main menu, and needed once again today's French Rep. Date.
+
+- Go to Main menu (Basically will display the same present menu, without the Auto Todays' French Rep. Date on top.)
+
+- Quit the program
