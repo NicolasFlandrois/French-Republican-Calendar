@@ -131,11 +131,12 @@ class Compute(object):
                 'FrRep_YearDay':fr_yrday + 1  # Integer
                 }
 
-    # def translate(FrRepDateDict):
-    #     """
-    #     The Translate function, computes Fr. Rep. Dates back into Gregorian Dates.
-    #     It returns a Date time Tuple.
-    #     """
+    def translate(FrRepDateDict):
+        """
+        The Translate function, computes Fr. Rep. Dates back into Gregorian Dates.
+        It returns a Date time Tuple.
+        """
+        pass
 
 
 class View(object):
@@ -167,9 +168,8 @@ de l'An {date['FrRep_Year']} de la République"
     def gregorian_date(date):
         """Given a Date Tupple, will return the Gregorian date
         as a readable String."""
-        dstring = f"{date[0]} {date[1]} {date[2]}"
-        d = datetime.datetime.strptime(dstring, '%Y %m %d')
-        return d.strftime('%A, %Y %B %d')
+        return datetime.datetime.strptime((f"{date[0]} {date[1]} {date[2]}"),
+         '%Y %m %d').strftime('%A, %Y %B %d')
 
 
 # class Input(object):
