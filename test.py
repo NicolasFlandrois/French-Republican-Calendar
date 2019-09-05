@@ -1,4 +1,4 @@
-from french_republicat_date import GregorianDate, Compute, View
+from french_republican_date import *
 import datetime
 import time
 
@@ -33,13 +33,15 @@ def test_compute_convert():
     assert Compute.convert(datetime.date(2019, 12, 31).timetuple()) == {'FrRep_Year': 228, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 1, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 11, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 101}
 
 def test_compute_translate():
-    assert type(Compute.translate()) == time.struct_time
-    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 2, 'FrRep_Weekday': 'Duodi', 'leapYear': False, 'FrRep_MonthDay': 12, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 102}) == (2019, 1, 1)
-    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Germinal', 'FrRep_Decade': 2, 'FrRep_Weekday': 'Duodi', 'leapYear': False, 'FrRep_MonthDay': 12, 'FrRep_YearWeek': 20, 'FrRep_YearMonth': 7, 'FrRep_YearDay': 192}) == (2019, 4, 1)
-    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Fructidor', 'FrRep_Decade': 3, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 30, 'FrRep_YearWeek': 36, 'FrRep_YearMonth': 12, 'FrRep_YearDay': 360}) == (2019, 9, 16)
-    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Sansculottides', 'FrRep_Decade': None, 'FrRep_Weekday': "La Fête de l'Opinion", 'leapYear': False, 'FrRep_MonthDay': 4, 'FrRep_YearWeek': 37, 'FrRep_YearMonth': 13, 'FrRep_YearDay': 364}) == (2019, 9, 20)
-    assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire', 'FrRep_Decade': 0, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 1, 'FrRep_YearWeek': 1, 'FrRep_YearMonth': 1, 'FrRep_YearDay': 1}) == (2019, 9, 22)
-    assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 1, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 11, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 101}) == (2019, 12, 31)
+    assert type(Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 2, 'FrRep_Weekday': 'Duodi', 'leapYear': False, 'FrRep_MonthDay': 12, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 102})) == time.struct_time
+    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 2, 'FrRep_Weekday': 'Duodi', 'leapYear': False, 'FrRep_MonthDay': 12, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 102}) == datetime.date(2019, 1, 1).timetuple()
+    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Germinal', 'FrRep_Decade': 2, 'FrRep_Weekday': 'Duodi', 'leapYear': False, 'FrRep_MonthDay': 12, 'FrRep_YearWeek': 20, 'FrRep_YearMonth': 7, 'FrRep_YearDay': 192}) == datetime.date(2019, 4, 1).timetuple()
+    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Fructidor', 'FrRep_Decade': 3, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 30, 'FrRep_YearWeek': 36, 'FrRep_YearMonth': 12, 'FrRep_YearDay': 360}) == datetime.date(2019, 9, 16).timetuple()
+    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Sansculottides', 'FrRep_Decade': None, 'FrRep_Weekday': "La Fête de l'Opinion", 'leapYear': False, 'FrRep_MonthDay': 4, 'FrRep_YearWeek': 37, 'FrRep_YearMonth': 13, 'FrRep_YearDay': 364}) == datetime.date(2019, 9, 20).timetuple()
+    assert Compute.translate({'FrRep_Year': 227, 'FrRep_Month': 'Sansculottides', 'FrRep_Decade': None, 'FrRep_Weekday': "La Fête de l'Opinion", 'leapYear': False, 'FrRep_MonthDay': 4, 'FrRep_YearWeek': 37, 'FrRep_YearMonth': 13, 'FrRep_YearDay': 365}) == datetime.date(2019, 9, 21).timetuple()
+    assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire', 'FrRep_Decade': 0, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 1, 'FrRep_YearWeek': 1, 'FrRep_YearMonth': 1, 'FrRep_YearDay': 1}) == datetime.date(2019, 9, 22).timetuple()
+    assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire', 'FrRep_Decade': 0, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 1, 'FrRep_YearWeek': 1, 'FrRep_YearMonth': 1, 'FrRep_YearDay': 2}) == datetime.date(2019, 9, 23).timetuple()
+    assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 1, 'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 11, 'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 101}) == datetime.date(2019, 12, 31).timetuple()
 
 def test_view_b1802():
     assert type(View.fr_date_b1802(Compute.convert(GregorianDate.nowdate()))) == str

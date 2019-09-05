@@ -134,12 +134,22 @@ class Compute(object):
                 # clearer view of what comes from where, and the type of data
                 # (cf inline comments).
 
-    def translate(FrRepDateDict):
+    def translate(fr_date: dict):
         """
         The Translate function, computes Fr. Rep. Dates back into Gregorian Dates.
         It returns a Date time Tuple.
         """
-        pass
+        fr_year = fr_date['FrRep_Year']
+        fr_yrday = fr_date['FrRep_YearDay']
+
+        if fr_yrday in range(1, 102):
+            year = fr_year + 1791  # (1792 - 1)
+            yearday = fr_yrday + 264 #(GregorianDate.leapyr(year)[0] - 101)
+        else:
+            year = fr_year + 1792
+            yearday = fr_yrday-101
+
+        return datetime.datetime.strptime(f'{year} {yearday}', '%Y %j').timetuple()
 
 
 class View(object):
