@@ -195,7 +195,26 @@ de l'An {date['FrRep_Year']} de la République"
 
 
 # class Menu/APP(object):
-#             """Menu (or name it APP?)Will Manage the App"""
-#             def __init__(self, arg):
-#                 super(Menu, self).__init__()
-#                 self.arg = arg
+#     """Menu (or name it APP?)Will Manage the App"""
+# Menu Choices:
+# Print() > Disclaimer, See README on calculations, and considered approche to dev. ROMME Computation(Or add this disclaimer in the menu)
+# 1/ Today's Fr Rep Date
+    # a/ To Long Format (Before 1802)
+    # b/ To Short Format (After 1802)
+    # c/ Return to main menu
+    # d/ Quit
+# 2/ Convert a Greg Date into Fr Rep Date
+    # a/ To Long Format (Before 1802)
+    # b/ To Short Format (After 1802)
+    # c/ Return to main menu
+    # d/ Quit
+# 3/ Translate a Fr Rep Date into Greg Date
+    # a/ From Long Format (Before 1802)
+    # b/ From Short Format (After 1802)
+    # c/ Return to main menu
+    # d/ Quit
+# 4/ What is The French Republican Calendar
+#       wikipedia.summary('French_Republican_calendar')
+#       wikipedia.page('French_Republican_calendar').url
+# 5/ Return to main menu
+# 6/ Quit
