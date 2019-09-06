@@ -98,7 +98,7 @@ class Compute(object):
             fr_yrday = DateTuple[7] + endYrConstant
             fr_yrweek = fr_yrday // 10
 
-            if fr_yrday > 360: # Define the Sansculottides exception.
+            if fr_yrday > 360:  # Define the Sansculottides exception.
                 fr_month = FrRepCal.monthNames[-1]
                 fr_decade = None
                 fr_weekday = FrRepCal.sansculottides[fr_yrday - 360]
@@ -120,23 +120,25 @@ class Compute(object):
             fr_monthday = (fr_yrday % 30) + 1
 
         return {
-                'FrRep_Year':fr_year,  # Integer
-                'FrRep_Month':fr_month,  # String
-                'FrRep_Decade':fr_decade,  # Integer
-                'FrRep_Weekday':fr_weekday,  # String
-                'leapYear':totalYrdays[1],  # Boolean
+                'FrRep_Year': fr_year,  # Integer
+                'FrRep_Month': fr_month,  # String
+                'FrRep_Decade': fr_decade,  # Integer
+                'FrRep_Weekday': fr_weekday,  # String
+                'leapYear': totalYrdays[1],  # Boolean
                 'FrRep_MonthDay': fr_monthday,  # Integer
-                'FrRep_YearWeek':fr_yrweek + 1,  # Integer
+                'FrRep_YearWeek': fr_yrweek + 1,  # Integer
                 'FrRep_YearMonth': (fr_yrweek // 3) + 1,  # Integer
-                'FrRep_YearDay':fr_yrday + 1  # Integer
-                }  # I could implement the dictionary directly as I create
-                # them along the way. However This way Here, we can have a
-                # clearer view of what comes from where, and the type of data
-                # (cf inline comments).
+                'FrRep_YearDay': fr_yrday + 1  # Integer
+                }
+        # I could implement the dictionary directly as I create
+        # them along the way. However This way Here, we can have a
+        # clearer view of what comes from where, and the type of data
+        # (cf inline comments).
 
     def translate(fr_date: dict):
         """
-        The Translate function, computes Fr. Rep. Dates back into Gregorian Dates.
+        The Translate function, computes Fr. Rep. Dates back into Gregorian
+        Dates.
         It returns a Date time Tuple.
         """
         fr_year = fr_date['FrRep_Year']
@@ -149,7 +151,8 @@ class Compute(object):
             year = fr_year + 1792
             yearday = fr_yrday-101
 
-        return datetime.datetime.strptime(f'{year} {yearday}', '%Y %j').timetuple()
+        return datetime.datetime.strptime(f'{year} {yearday}', '%Y %j')\
+            .timetuple()
 
 
 class View(object):
@@ -182,7 +185,7 @@ de l'An {date['FrRep_Year']} de la République"
         """Given a Date Tupple, will return the Gregorian date
         as a readable String."""
         return datetime.datetime.strptime((f"{date[0]} {date[1]} {date[2]}"),
-         '%Y %m %d').strftime('%A, %Y %B %d')
+                                          '%Y %m %d').strftime('%A, %Y %B %d')
 
 
 # class Input(object):
@@ -197,7 +200,8 @@ de l'An {date['FrRep_Year']} de la République"
 # class Menu/APP(object):
 #     """Menu (or name it APP?)Will Manage the App"""
 # Menu Choices:
-# Print() > Disclaimer, See README on calculations, and considered approche to dev. ROMME Computation(Or add this disclaimer in the menu)
+# Print() > Disclaimer, See README on calculations, and considered approche
+# to dev. ROMME Computation(Or add this disclaimer in the menu)
 # 1/ Today's Fr Rep Date
     # a/ To Long Format (Before 1802)
     # b/ To Short Format (After 1802)
