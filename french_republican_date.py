@@ -144,7 +144,7 @@ class Compute(object):
 
         if fr_yrday in range(1, 102):
             year = fr_year + 1791  # (1792 - 1)
-            yearday = fr_yrday + 264 #(GregorianDate.leapyr(year)[0] - 101)
+            yearday = fr_yrday + (GregorianDate.leapyr(year)[0] - 101)
         else:
             year = fr_year + 1792
             yearday = fr_yrday-101
