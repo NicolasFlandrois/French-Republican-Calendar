@@ -8,7 +8,7 @@ Python Converter of ISO Dates into, and translate from, French Republican Calend
 
 **License**: MIT License - Copyright (c) 2019 Nicolas Flandrois
 
-**Version**: v1
+**Version**: Alpha - v1
 
 ------------------------------
 What is a French Republican Calendar?
@@ -187,7 +187,7 @@ For the Computations we will consider the Following points:
 How To Use This Program?
 ========================
 
-## Requierements & Dependencies
+## Requirements & Dependencies
 
 This program is initially created to run in Python, from the terminal.
 
@@ -197,16 +197,16 @@ It has been developed in **Python 3.7**.
 
 We are useing standard Python 3.7 libraries to do all the computation and conversion. The Wikipedia modul is used to provide a summary explaination of the French Republican Calendar, along with the URL to it's wikipedia page.
 
-### Requieremants:
-- wikipedia (cf: requierements.txt)
+### Requiremants:
+- wikipedia (cf: requirements.txt)
 
-To install requiered dependencies:
+To install required dependencies:
 
 Either from [Pypi Wikipedia](https://pypi.org/project/wikipedia/) package:
 
     pip3 install wikipedia
 
-Or running installation from requierement.txt (Recommended) in terminal:
+Or running installation from requirement.txt (Recommended) in terminal:
 
     pip3 install -r [path-to-file]/requirements.txt
 
@@ -221,8 +221,9 @@ Or running installation from requierement.txt (Recommended) in terminal:
 At launch the current Gregorian and Frenc Republican Dates will be given Automatically.
 
 From Menu options, you can either:
-- Convert a Gregorian Date into a French Republican date. (Following the instructions to input the Gregorian Date.)
-- Translate a French Republican Date into a Gregorian date. (Following the instructions to input the French Rep. Date.)
+- Convert a Gregorian Date into a French Republican date. (Following the instructions to input the Gregorian Date.).
+- Translate a French Republican Date into a Gregorian date. (Following the instructions to input the French Rep. Date.).
 - Compute Today's Gregorian Date. In the enventuality you used other options, then came back to main menu, and needed once again today's French Rep. Date.
-- Go to Main menu (Basically will display the same present menu, without the Auto Todays' French Rep. Date on top.)
-- Quit the program
+- What is The French Republican Calendar (Wikipage summary).
+- Go to Main menu (Basically will display the same present menu, without the Auto Todays' French Rep. Date on top.).
+- Quit the program.
