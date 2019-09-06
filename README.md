@@ -135,6 +135,7 @@ Ideas Considered During Development
 
 For the Computations we will consider the Following points:
 
+- We will follow the ROMME leap year computation (with the following points).
 - The **Year ALWAYS starts** on ***September 22nd***, of each Year. (Easier to manage.)
 - We will apply leap years as they occure in the Gregorian Calendar. (Easier to manage.)
 - Day 1 of the Calendar of Year 1 :
@@ -194,13 +195,26 @@ It has been developed in **Python 3.7**.
 
 *(If you use earlier Python versions, String formating needs to be adapted accordingly.)*
 
-Nos other dependencies are needed, as it's been developed with standard Python 3.7 modules, and libraries.
+We are useing standard Python 3.7 libraries to do all the computation and conversion. The Wikipedia modul is used to provide a summary explaination of the French Republican Calendar, along with the URL to it's wikipedia page.
+
+### Requieremants:
+- wikipedia (cf: requierements.txt)
+
+To install requiered dependencies:
+
+Either from [Pypi Wikipedia](https://pypi.org/project/wikipedia/) package:
+
+    pip3 install wikipedia
+
+Or running installation from requierement.txt (Recommended) in terminal:
+
+    pip3 install -r [path-to-file]/requirements.txt
 
 ## How to run the Program?
 
 1. With Python 3.7 launch the program in your interpreter or terminal.
 
-        python3.7 frrepcal.py
+        python3.7 french_republican_date.py
 
 2. Follow the instructions from the Menu.
 
