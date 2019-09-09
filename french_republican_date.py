@@ -123,8 +123,8 @@ class Compute(object):
             fr_yrday = DateTuple[7] - (totalYrdays[0] - 100)
             fr_yrweek = fr_yrday // 10
             fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
-            fr_decade = fr_yrweek % 3
-            fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)-1]
+            fr_decade = (fr_yrweek % 3) + 1
+            fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)]
             fr_monthday = (fr_yrday % 30) + 1
 
         return {
