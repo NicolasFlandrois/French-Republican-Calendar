@@ -102,7 +102,11 @@ class Compute(object):
             # over Sept 22nd.
             # (totalYrdays[0] - 100) defines ISO Year day for Sept 22nd in a
             # leap Year of not
-            fr_year = DateTuple[0] - 1792
+            if DateTuple[0] <= 1792:
+                fr_year = DateTuple[0] - 1792 -1
+            else:
+                fr_year = DateTuple[0] - 1792
+
             fr_yrday = DateTuple[7] + 100
             fr_yrweek = fr_yrday // 10
 
@@ -119,7 +123,11 @@ class Compute(object):
                 fr_monthday = (fr_yrday % 30) + 1
 
         else:  # Dates [22 Sept - 31 Dec]
-            fr_year = DateTuple[0] - 1792 + 1
+            if DateTuple[0] < 1792:
+                fr_year = DateTuple[0] - 1792
+            else:
+                fr_year = DateTuple[0] - 1792 + 1
+
             fr_yrday = DateTuple[7] - (totalYrdays[0] - 100)
             fr_yrweek = fr_yrday // 10
             fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
