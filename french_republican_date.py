@@ -106,7 +106,7 @@ class Compute(object):
             fr_yrday = DateTuple[7] + 100
             fr_yrweek = fr_yrday // 10
 
-            if fr_yrday > 360:  # Define the Sansculottides exception.
+            if fr_yrday > 359:  # Define the Sansculottides exception.
                 fr_month = FrRepCal.monthNames[-1]
                 fr_decade = None
                 fr_weekday = FrRepCal.sansculottides[fr_yrday - 360]
