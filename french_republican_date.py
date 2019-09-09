@@ -93,11 +93,17 @@ class Compute(object):
         Takes a Date Tuple, and Returning Dictionnary.
         """
         totalYrdays = GregorianDate.leapyr(DateTuple[0])
-        endYrConstant = 100
 
-        if DateTuple[7] < (totalYrdays[0] - 100):
+        # Note a constant of 100 days timedelta is set
+        # between Sept 22 and Dec 31
+
+        if DateTuple[7] < (totalYrdays[0] - 100):  # Dates [01 Jan - 21 Sept]
+            # This if condition defines if your date is bellow or
+            # over Sept 22nd.
+            # (totalYrdays[0] - 100) defines ISO Year day for Sept 22nd in a
+            # leap Year of not
             fr_year = DateTuple[0] - 1792
-            fr_yrday = DateTuple[7] + endYrConstant
+            fr_yrday = DateTuple[7] + 100
             fr_yrweek = fr_yrday // 10
 
             if fr_yrday > 360:  # Define the Sansculottides exception.
@@ -106,15 +112,15 @@ class Compute(object):
                 fr_weekday = FrRepCal.sansculottides[fr_yrday - 360]
                 fr_monthday = fr_yrday - 359
 
-            else:
+            else:  # Normal days (Non sansculottides days)
                 fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
                 fr_decade = (fr_yrweek % 3)+1
                 fr_weekday = FrRepCal.dayNames[(fr_yrday % 10)]
                 fr_monthday = (fr_yrday % 30) + 1
 
-        else:
+        else:  # Dates [22 Sept - 31 Dec]
             fr_year = DateTuple[0] - 1792 + 1
-            fr_yrday = DateTuple[7] - (totalYrdays[0] - endYrConstant)
+            fr_yrday = DateTuple[7] - (totalYrdays[0] - 100)
             fr_yrweek = fr_yrday // 10
             fr_month = FrRepCal.monthNames[(fr_yrweek // 3)]
             fr_decade = fr_yrweek % 3
