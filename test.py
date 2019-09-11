@@ -9,6 +9,7 @@
 from french_republican_date import *
 import datetime
 import time
+import urllib.request
 
 
 def test_today():
@@ -63,12 +64,12 @@ def test_compute_convert():
             'FrRep_MonthDay': 4, 'FrRep_YearWeek': 37, 'FrRep_YearMonth': 13,
             'FrRep_YearDay': 364}
     assert Compute.convert(datetime.date(2019, 9, 22).timetuple()) == \
-        {'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire', 'FrRep_Decade': 0,
-            'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 1,
+        {'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire', 'FrRep_Decade': 1,
+            'FrRep_Weekday': 'Primidi', 'leapYear': False, 'FrRep_MonthDay': 1,
             'FrRep_YearWeek': 1, 'FrRep_YearMonth': 1, 'FrRep_YearDay': 1}
     assert Compute.convert(datetime.date(2019, 12, 31).timetuple()) == \
-        {'FrRep_Year': 228, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 1,
-            'FrRep_Weekday': 'Décadi', 'leapYear': False, 'FrRep_MonthDay': 11,
+        {'FrRep_Year': 228, 'FrRep_Month': 'Nivôse', 'FrRep_Decade': 2,
+            'FrRep_Weekday': 'Primidi', 'leapYear': False, 'FrRep_MonthDay': 11,
             'FrRep_YearWeek': 11, 'FrRep_YearMonth': 4, 'FrRep_YearDay': 101}
 
 
@@ -119,7 +120,7 @@ def test_compute_translate():
                               'FrRep_YearDay': 1}) == \
         datetime.date(2019, 9, 22).timetuple()
     assert Compute.translate({'FrRep_Year': 228, 'FrRep_Month': 'Vendémiaire',
-                              'FrRep_Decade': 0, 'FrRep_Weekday': 'Décadi',
+                              'FrRep_Decade': 1, 'FrRep_Weekday': 'Primidi',
                               'leapYear': False, 'FrRep_MonthDay': 1,
                               'FrRep_YearWeek': 1, 'FrRep_YearMonth': 1,
                               'FrRep_YearDay': 2}) == \
@@ -153,12 +154,12 @@ Jour du Décadi"
  None, Jour du La Fête de l'Opinion"
     assert View.fr_date_b1802(Compute.convert(datetime.date(2019, 9, 22).
                                               timetuple())) == \
-        "Année 228 de la République Française, Mois de Vendémiaire, Décade 0, \
-Jour du Décadi"
+        "Année 228 de la République Française, Mois de Vendémiaire, Décade 1, \
+Jour du Primidi"
     assert View.fr_date_b1802(Compute.convert(datetime.date(2019, 12, 31).
                                               timetuple())) == \
-        "Année 228 de la République Française, Mois de Nivôse, Décade 1, \
-Jour du Décadi"
+        "Année 228 de la République Française, Mois de Nivôse, Décade 2, \
+Jour du Primidi"
 
 
 def test_view_a1802():
@@ -202,3 +203,50 @@ Italy."
         "https://en.wikipedia.org/wiki/French_Republican_calendar"
     assert App.wikipedia('zsecfu')[0] == 'Information not found.'
     assert App.wikipedia('zsecfu')[1] == 'Information not found.'
+
+def test_mock_wikipedia(monkeypatch):
+    res = (
+        "The French Republican calendar (French: calendrier républicain \
+français), also commonly called the French Revolutionary calendar \
+(calendrier révolutionnaire français), was a calendar created and implemented \
+during the French Revolution, and used by the French government for about 12 \
+years from late 1793 to 1805, and for 18 days by the Paris Commune in 1871. \
+The revolutionary system was designed in part to remove all religious and \
+royalist influences from the calendar, and was part of a larger attempt at \
+decimalisation in France (which also included decimal time of day, \
+decimalisation of currency, and metrication). It was used in government \
+records in France and other areas under French rule, including Belgium, \
+Luxembourg, and parts of the Netherlands, Germany, Switzerland, Malta, and \
+Italy.",
+        "https://en.wikipedia.org/wiki/French_Republican_calendar"
+    )
+
+    def mock_return(request):
+        return res
+
+    monkeypatch.setattr(urllib.request, 'urlopen', mock_return)
+
+    assert App.wikipedia('french_republican_date') == res
+
+def test_mock_fails_wikipedia(monkeypatch):
+    res = (
+        'Information not found.',
+        'Information not found.'
+    )
+
+    def mock_return(request):
+        return res
+
+    monkeypatch.setattr(urllib.request, 'urlopen', mock_return)
+
+    assert App.wikipedia('zsecfu') == res
+
+# test Input functions
+# import mock
+# def test_input():
+#     with mock.patch.object(__builtins__, 'input', lambda: 'some_input'):
+#         assert Input.gregorian_date() == 'expected_output'
+
+def test_input(monkeypatch):
+    with monckeypatch.object(builtins.input, lambda: 'some_input'):
+        assert Input.gregorian_date() == 'expected_output'
