@@ -53,6 +53,7 @@ class FrRepCal(object):
 class GregorianDate(object):
     """GregorianDate will manage Gregorian Dates"""
 
+    @staticmethod
     def nowdate():
         """
         Returns Date Now at time of coputation, local time,
@@ -60,6 +61,8 @@ class GregorianDate(object):
         """
         return datetime.datetime.now().timetuple()
 
+
+    @staticmethod
     def leapyr(year: int):
         """"
         This function defines if the year is
@@ -86,6 +89,8 @@ class GregorianDate(object):
 class Compute(object):
     """Compute will manage all calculation to Convert and translate."""
 
+
+    @staticmethod
     def convert(DateTuple):
         """
         The convert function, computes Gregorian Dates into
@@ -151,6 +156,8 @@ class Compute(object):
         # clearer view of what comes from where, and the type of data
         # (cf inline comments).
 
+
+    @staticmethod
     def translate(fr_date: dict):
         """
         The Translate function, computes Fr. Rep. Dates back into Gregorian
@@ -174,6 +181,8 @@ class Compute(object):
 class View(object):
     """ View returns readable dates in each section, as readable String"""
 
+
+    @staticmethod
     def fr_date_b1802(date: dict):
         """
         french_republican_date_early_format_before1802(date: dict)
@@ -186,6 +195,8 @@ class View(object):
 Mois de {date['FrRep_Month']}, Décade {date['FrRep_Decade']}, \
 Jour du {date['FrRep_Weekday']}"
 
+
+    @staticmethod
     def fr_date_a1802(date: dict):
         """
         french_repuplican_date_late_format_after1802(date: dict)
@@ -197,6 +208,8 @@ Jour du {date['FrRep_Weekday']}"
         return f"{date['FrRep_MonthDay']} {date['FrRep_Month']}, \
 de l'An {date['FrRep_Year']} de la République"
 
+
+    @staticmethod
     def gregorian_date(date):
         """Given a Date Tupple, will return the Gregorian date
         as a readable String."""
@@ -211,32 +224,37 @@ de l'An {date['FrRep_Year']} de la République"
 
 
 class App(object):
-    """App will Manage the App"""
-# Menu Choices:
-# Print() > Disclaimer, See README on calculations, and considered approche
-# to dev. ROMME Computation(Or add this disclaimer in the menu)
-# 1/ Today's Fr Rep Date
-    # a/ To Long Format (Before 1802)
-    # b/ To Short Format (After 1802)
-    # c/ Return to main menu
-    # d/ Quit
-# 2/ Convert a Greg Date into Fr Rep Date
-    # a/ To Long Format (Before 1802)
-    # b/ To Short Format (After 1802)
-    # c/ Return to main menu
-    # d/ Quit
-# 3/ Translate a Fr Rep Date into Greg Date
-    # a/ From Long Format (Before 1802)
-    # b/ From Short Format (After 1802)
-    # c/ Return to main menu
-    # d/ Quit
-# 4/ What is The French Republican Calendar
-#       wikipedia.summary('French_Republican_calendar')
-#       wikipedia.page('French_Republican_calendar').url
-# 5/ Return to main menu
-# 6/ Quit
+    """
+    App will Manage the App
+
+    Menu Choices:
+    Print() > Disclaimer, See README on calculations, and considered approche
+    to dev. ROMME Computation(Or add this disclaimer in the menu)
+
+    1/ Today's Fr Rep Date
+        a/ To Long Format (Before 1802)
+        b/ To Short Format (After 1802)
+        c/ Return to main menu
+        d/ Quit
+    2/ Convert a Greg Date into Fr Rep Date
+        a/ To Long Format (Before 1802)
+        b/ To Short Format (After 1802)
+        c/ Return to main menu
+        d/ Quit
+    3/ Translate a Fr Rep Date into Greg Date
+        a/ From Long Format (Before 1802)
+        b/ From Short Format (After 1802)
+        c/ Return to main menu
+        d/ Quit
+    4/ What is The French Republican Calendar
+          wikipedia.summary('French_Republican_calendar')
+          wikipedia.page('French_Republican_calendar').url
+    5/ Return to main menu
+    6/ Quit
+    """
 
 
+    @staticmethod
     def clean():
         """
         This function will clear the terminal's screen. The command is
@@ -246,6 +264,7 @@ class App(object):
         os.system("cls" if platform.system() == "Windows" else "clear")
 
 
+    @staticmethod
     def ask_integer(message: str, range, error_message: str = ""):
         """
         This function's purpose is to ask and verify an Integer.
@@ -265,6 +284,7 @@ class App(object):
                 print(error_message)
 
 
+    @staticmethod
     def wikipedia(request: str):
         """
         Given a String, this function will fetch a wikipedia summary, and URL.
@@ -276,103 +296,120 @@ class App(object):
             return ('Information not found.', 'Information not found.')
 
 
-    # @staticmethod
-    # def menu(question, choices=None):
-    #   """skeleton menu's view for each query and set of question."""
-    #   clean()
-    #   print(question)
-    #   if choices:
-    #       for num, choice in enumerate(choices):
-    #           print(str(num+1) + " : " + choice)
-    #   print('\n(Appuyer sur: Q pour QUITTER ou \
-    # R pour RETOUR au menu précédent.)\n')
-    #   while True:
-    #       try:
-    #           choice = input()
-    #           if choice.strip().lower() in ['r', 'q']:
-    #               break
-    #           elif choices:
-    #               choice = int(choice)
-    #               if choice in range(1, len(choices)+1):
-    #                   break
-    #               else:
-    #                   raise
-    #       except:
-    #           print(
-    #               "Veuillez entrer un nombre entre 1 et " +
-    #               str(len(choices)) + "."
-    #               )
-    #   return choice
+    @staticmethod
+    def menu(question, choices=None):
+        """skeleton menu's view for each query and set of question."""
+        clean()
+        print(question)
+        if choices:
+            for num, choice in enumerate(choices):
+                print(str(num+1) + " : " + choice)
+        print('\n(Appuyer sur: Q pour QUITTER ou \
+R pour RETOUR au menu précédent.)\n')
+        while True:
+            try:
+                choice = input()
+                if choice.strip().lower() in ['r', 'q']:
+                    break
+                elif choices:
+                    choice = int(choice)
+                    if choice in range(1, len(choices)+1):
+                        break
+                    else:
+                        raise
+            except:
+                print(
+                    "Veuillez entrer un nombre entre 1 et " +
+                    str(len(choices)) + "."
+                    )
+
+        return choice
 
 
-  # def main_menu():
-  #     """
-  #     Main Menu:
-  #       1/ Today's Fr Rep Date
-  #       2/ Convert a Greg Date into Fr Rep Date
-  #       3/ Translate a Fr Rep Date into Greg Date
-  #       4/ What is The French Republican Calendar
-  #       5/ Return to main menu
-  #       6/ Quit
-  #     """
-  # Using the (generic) Menu function
+    @staticmethod
+    def main_menu():
+        """
+        Main Menu:
+        1/ Today's Fr Rep Date
+        2/ Convert a Greg Date into Fr Rep Date
+        3/ Translate a Fr Rep Date into Greg Date
+        4/ What is The French Republican Calendar
+        5/ Return to main menu
+        6/ Quit
+        """
+        question = "Which Operation would you like to do?"
+        menu = ["Today's Fr Rep Date",
+            "Convert a Greg Date into Fr Rep Date",
+            "Translate a Fr Rep Date into Greg Date",
+            "What is The French Republican Calendar",
+            "Return to main menu",
+            "Quit"]
+        return App.menu(question, menu)
 
 
-  # def sub_menu():
-  #     """
-  #     Sub Menu:
-  #       a/ Long Format (Before 1802)
-  #       b/ Short Format (After 1802)
-  #       c/ Return to main menu
-  #       d/ Quit
-  #     """
-  # Using the (generic) Menu function
+    @staticmethod
+    def sub_menu():
+        """
+        Sub Menu:
+        a/ Long Format (Before 1802)
+        b/ Short Format (After 1802)
+        c/ Return to main menu
+        d/ Quit
+        """
+        question = "Which Format do you want?"
+        menu = ["Long Format (Before 1802)","Short Format (After 1802)",
+                "Return to main menu", "Quit"]
+        return App.menu(question, menu)
 
 
-  # def main():
-  #   """
-  #   This function will run the program according to user story, and menu logic.
-  #   """
-  # Exemple:
-  #       def set_view(view, top_level=False):
-  #           res = view()
-  #           if res == "r":
-  #               if not top_level:
-  #                   return None
-  #           elif res == "q":
-  #               exit()
-  #           else:
-  #               return res
+    @staticmethod
+    def set_view(view, top_level=False):
+        res = view()
+        if res == "r":
+            if not top_level:
+                return None
+        elif res == "q":
+            exit()
+        else:
+            return res
 
 
-  #       def main():
-  #           """Program's Main running function."""
+    @staticmethod
+    def main():
+        """Program's Main running function.""" ##Entire Main to rebuild and Modify
 
-  #           while True:
-  #               res = set_view(View.main_view, True)
-  #               if res == 1:
-  #                   while True:
-  #                       cat_id = set_view(View.cats_view)
-  #                       if cat_id:
-  #                           while True:
-  #                               prod_id = set_view(lambda: View.prods_view(cat_id))
-  #                               if not prod_id:
-  #                                   break
-  #                               while True:
-  #                                   set_view(lambda: View.sheet_view(prod_id))
-  #                                   set_view(lambda: View.substitution(prod_id))
-  #                                   break
-  #                       if not cat_id:
-  #                           break
+        while True:
+            res = set_view(App.menu, True)
+            if res == 1:
+                while True:
+                    cat_id = set_view(View.cats_view)
+                    if cat_id:
+                        while True:
+                            prod_id = set_view(lambda: View.prods_view(cat_id))
+                            if not prod_id:
+                                break
+                            while True:
+                                set_view(lambda: View.sheet_view(prod_id))
+                                set_view(lambda: View.substitution(prod_id))
+                                break
+                    if not cat_id:
+                        break
 
-  #               elif res == 2:
-  #                   set_view(View.sub_tbl)
-  #                   res = set_view(lambda: View.menu("Question:", [
-  #                       "Retour Menu Principal", "Quitter"]))
-  #                   if res == 2:
-  #                       exit()
-  #                   if not res:
-  #                       continue
+            elif res == 2:
+                set_view(View.sub_tbl)
+                res = set_view(lambda: View.menu("Question:", [
+                    "Return to Main Menu", "Quit"]))
+                if res == 2:
+                    exit()
+                if not res:
+                    continue
 
-# if __name__ == '__main__':
-#     App.main()
+
+if __name__ == '__main__':
+
+    print("French Republican Calendar.")
+    print("Today is:")
+    # Today's Date In Gregorian Date Format
+    Print("Today's French Republican Date is:")
+    # Today's FrRepDate a1802 & b1802 both formats
+    main()
