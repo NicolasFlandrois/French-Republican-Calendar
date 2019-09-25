@@ -247,6 +247,6 @@ def test_mock_fails_wikipedia(monkeypatch):
 #     with mock.patch.object(__builtins__, 'input', lambda: 'some_input'):
 #         assert Input.gregorian_date() == 'expected_output'
 
-def test_input(monkeypatch):
-    with monckeypatch.object(builtins.input, lambda: 'some_input'):
-        assert Input.gregorian_date() == 'expected_output'
+# def test_input(monkeypatch):
+#     with monckeypatch.object(builtins.input, lambda: 'some_input'):
+#         assert Input.gregorian_date() == 'expected_output'
